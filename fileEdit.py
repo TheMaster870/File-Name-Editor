@@ -15,6 +15,8 @@ def RemoveChar():
     print("###############")
     print("Files found:")
     for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
         print(file)
     print("###############")
     print("")
@@ -22,6 +24,8 @@ def RemoveChar():
 
     newNames = []
     for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
         indexOfLastDot = file.rfind('.')
         fileExtention = file[indexOfLastDot:len(file)]
         newName = file[0:indexOfLastDot]
@@ -42,6 +46,8 @@ def RemoveChar():
     if response == "y":
         newNames = []
         for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
             indexOfLastDot = file.rfind('.')
             fileExtention = file[indexOfLastDot:len(file)]
             newName = file[0:indexOfLastDot]
@@ -72,6 +78,8 @@ def ReplaceChar():
     print("###############")
     print("Files found:")
     for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
         print(file)
     print("###############")
     print("")
@@ -79,6 +87,8 @@ def ReplaceChar():
 
     newNames = []
     for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
         indexOfLastDot = file.rfind('.')
         fileExtention = file[indexOfLastDot:len(file)]
         newName = file[0:indexOfLastDot]
@@ -99,6 +109,8 @@ def ReplaceChar():
     if response == "y":
         newNames = []
         for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
             indexOfLastDot = file.rfind('.')
             fileExtention = file[indexOfLastDot:len(file)]
             newName = file[0:indexOfLastDot]
@@ -127,6 +139,8 @@ def RemoveString():
     print("###############")
     print("Files found:")
     for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
         print(file)
     print("###############")
     print("")
@@ -134,6 +148,8 @@ def RemoveString():
 
     newNames = []
     for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
         indexOfLastDot = file.rfind('.')
         fileExtention = file[indexOfLastDot:len(file)]
         newName = file[0:indexOfLastDot]
@@ -154,10 +170,134 @@ def RemoveString():
     if response == "y":
         newNames = []
         for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
             indexOfLastDot = file.rfind('.')
             fileExtention = file[indexOfLastDot:len(file)]
             newName = file[0:indexOfLastDot]
             newName = newName.replace(stringToRemove, '')
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes made :(")
+        
+    print("")
+    print("ENTER to continue")
+    input()
+
+def AddEnd():
+    os.system('cls')
+    print("#Add End#")
+    print("Please enter the string to add to the ends:")
+    stringToAdd = input()
+
+    mypath = os.getcwd()
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    print("")
+    print("###############")
+    print("Files found:")
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        print(file)
+    print("###############")
+    print("")
+    print("Adding string: " + stringToAdd)
+
+    newNames = []
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        indexOfLastDot = file.rfind('.')
+        fileExtention = file[indexOfLastDot:len(file)]
+        newName = file[0:indexOfLastDot]
+        newName = newName + stringToAdd
+        newName = newName + fileExtention
+        newNames.append(newName)
+        #os.rename(file, newName)
+
+    print("")
+    print("###############")
+    print("New File Names:")
+    for file in newNames:
+        print(file)
+    print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = newName + stringToAdd
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes made :(")
+        
+    print("")
+    print("ENTER to continue")
+    input()
+
+def AddStart():
+    os.system('cls')
+    print("#Add Start#")
+    print("Please enter the string to add to the starts:")
+    stringToAdd = input()
+
+    mypath = os.getcwd()
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    print("")
+    print("###############")
+    print("Files found:")
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        print(file)
+    print("###############")
+    print("")
+    print("Adding string: " + stringToAdd)
+
+    newNames = []
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        indexOfLastDot = file.rfind('.')
+        fileExtention = file[indexOfLastDot:len(file)]
+        newName = file[0:indexOfLastDot]
+        newName = stringToAdd + newName
+        newName = newName + fileExtention
+        newNames.append(newName)
+        #os.rename(file, newName)
+
+    print("")
+    print("###############")
+    print("New File Names:")
+    for file in newNames:
+        print(file)
+    print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = stringToAdd + newName
             newName = newName + fileExtention
             newNames.append(newName)
             os.rename(file, newName)
@@ -176,6 +316,8 @@ while(True):
     print("1 - Char Remove")
     print("2 - Char Replace")
     print("3 - String Remove")
+    print("4 - Add to Start")
+    print("5 - Add to End")
     choice = input()
     if choice == "1":
         RemoveChar()
@@ -183,3 +325,7 @@ while(True):
         ReplaceChar()
     elif choice == "3":
         RemoveString()
+    elif choice == "4":
+        AddEnd()
+    elif choice == "5":
+        AddStart()
