@@ -28,7 +28,7 @@ def RemoveChar():
         newName = newName.replace(charToRemove, '')
         newName = newName + fileExtention
         newNames.append(newName)
-        os.rename(file, newName)
+        #os.rename(file, newName)
 
     print("")
     print("###############")
@@ -36,6 +36,23 @@ def RemoveChar():
     for file in newNames:
         print(file)
     print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = newName.replace(charToRemove, '')
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes made :(")
+        
     print("")
     print("ENTER to continue")
     input()
@@ -68,7 +85,7 @@ def ReplaceChar():
         newName = newName.replace(charToRemove, charToInsert)
         newName = newName + fileExtention
         newNames.append(newName)
-        os.rename(file, newName)
+        #os.rename(file, newName)
 
     print("")
     print("###############")
@@ -76,6 +93,23 @@ def ReplaceChar():
     for file in newNames:
         print(file)
     print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = newName.replace(charToRemove, charToInsert)
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes make :(")
+    
     print("")
     print("ENTER to continue")
     input()
@@ -106,7 +140,7 @@ def RemoveString():
         newName = newName.replace(stringToRemove, '')
         newName = newName + fileExtention
         newNames.append(newName)
-        os.rename(file, newName)
+        #os.rename(file, newName)
 
     print("")
     print("###############")
@@ -114,6 +148,23 @@ def RemoveString():
     for file in newNames:
         print(file)
     print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = newName.replace(stringToRemove, '')
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes made :(")
+        
     print("")
     print("ENTER to continue")
     input()
