@@ -420,7 +420,7 @@ def RemoveEnd():
                 indexOfLastDot = file.rfind('.')
                 fileExtention = file[indexOfLastDot:len(file)]
                 newName = file[0:indexOfLastDot]
-                newName = newName[int(numToRemove):]
+                newName = newName[:-int(numToRemove)]
                 newName = newName + fileExtention
                 newNames.append(newName)
                 os.rename(file, newName)
