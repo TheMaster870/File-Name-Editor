@@ -309,6 +309,128 @@ def AddStart():
     print("ENTER to continue")
     input()
 
+def RemoveStart():
+    os.system('cls')
+    print("#Remove Start#")
+    print("Please enter the the amount of chars to remove from the start:")
+    numToRemove = input()
+
+    mypath = os.getcwd()
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    print("")
+    print("###############")
+    print("Files found:")
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        print(file)
+    print("###############")
+    print("")
+    print("Remove num from start: " + numToRemove)
+
+    newNames = []
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        indexOfLastDot = file.rfind('.')
+        fileExtention = file[indexOfLastDot:len(file)]
+        newName = file[0:indexOfLastDot]
+        newName = newName[int(numToRemove):]
+        newName = newName + fileExtention
+        newNames.append(newName)
+        #os.rename(file, newName)
+
+    print("")
+    print("###############")
+    print("New File Names:")
+    for file in newNames:
+        print(file)
+    print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = newName[int(numToRemove):]
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes made :(")
+        
+    print("")
+    print("ENTER to continue")
+    input()
+
+def RemoveEnd():
+    os.system('cls')
+    print("#Remove End#")
+    print("Please enter the the amount of chars to remove from the end:")
+    numToRemove = input()
+
+    mypath = os.getcwd()
+    onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
+
+    print("")
+    print("###############")
+    print("Files found:")
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        print(file)
+    print("###############")
+    print("")
+    print("Remove num from end: " + numToRemove)
+
+    newNames = []
+    for file in onlyfiles:
+        if file == os.path.basename(__file__):
+            continue
+        indexOfLastDot = file.rfind('.')
+        fileExtention = file[indexOfLastDot:len(file)]
+        newName = file[0:indexOfLastDot]
+        newName = newName[:-int(numToRemove)]
+        newName = newName + fileExtention
+        newNames.append(newName)
+        #os.rename(file, newName)
+
+    print("")
+    print("###############")
+    print("New File Names:")
+    for file in newNames:
+        print(file)
+    print("###############")
+    print("")
+    print("Do you wish to continue? y/n")
+    response = input()
+    if response == "y":
+        newNames = []
+        for file in onlyfiles:
+            if file == os.path.basename(__file__):
+                continue
+            indexOfLastDot = file.rfind('.')
+            fileExtention = file[indexOfLastDot:len(file)]
+            newName = file[0:indexOfLastDot]
+            newName = newName[int(numToRemove):]
+            newName = newName + fileExtention
+            newNames.append(newName)
+            os.rename(file, newName)
+            print("Name changed: " + newName)
+    else:
+        print("No changes made :(")
+        
+    print("")
+    print("ENTER to continue")
+    input()
+
 while(True):
     os.system('cls')
     print("File Editor")
@@ -318,6 +440,8 @@ while(True):
     print("3 - String Remove")
     print("4 - Add to Start")
     print("5 - Add to End")
+    print("6 - Remove from Start")
+    print("7 - Remove from End")
     choice = input()
     if choice == "1":
         RemoveChar()
@@ -326,6 +450,10 @@ while(True):
     elif choice == "3":
         RemoveString()
     elif choice == "4":
-        AddEnd()
-    elif choice == "5":
         AddStart()
+    elif choice == "5":
+        AddEnd()
+    elif choice == "6":
+        RemoveStart()
+    elif choice == "7":
+        RemoveEnd()
