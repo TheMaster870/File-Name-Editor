@@ -2,13 +2,15 @@ import os
 from os import listdir
 from os.path import isfile, join
 
+mypath = os.path.dirname(os.path.realpath(__file__))
+os.chdir(mypath)
+
 def RemoveChar():
     os.system('cls')
     print("#Char Remove#")
     print("Please enter the character to remove from files:")
     charToRemove = input()
     if charToRemove != "":
-        mypath = os.getcwd()
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
         print("")
@@ -72,7 +74,6 @@ def ReplaceChar():
         print("Please enter the char to replace it with:")
         charToInsert = input()
         if charToInsert != "":
-            mypath = os.getcwd()
             onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
             print("")
@@ -133,7 +134,6 @@ def RemoveString():
     print("Please enter the string to remove from files:")
     stringToRemove = input()
     if stringToRemove != "":
-        mypath = os.getcwd()
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
         print("")
@@ -194,7 +194,6 @@ def AddEnd():
     print("Please enter the string to add to the ends:")
     stringToAdd = input()
     if stringToAdd != "":
-        mypath = os.getcwd()
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
         print("")
@@ -255,7 +254,6 @@ def AddStart():
     print("Please enter the string to add to the starts:")
     stringToAdd = input()
     if stringToAdd != "":
-        mypath = os.getcwd()
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
         print("")
@@ -316,7 +314,6 @@ def RemoveStart():
     print("Please enter the the amount of chars to remove from the start:")
     numToRemove = input()
     if numToRemove != "":
-        mypath = os.getcwd()
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
         print("")
@@ -377,7 +374,6 @@ def RemoveEnd():
     print("Please enter the the amount of chars to remove from the end:")
     numToRemove = input()
     if numToRemove != "":
-        mypath = os.getcwd()
         onlyfiles = [f for f in listdir(mypath) if isfile(join(mypath, f))]
 
         print("")
